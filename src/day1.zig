@@ -31,8 +31,8 @@ pub fn solvePart1(input: []const u8) !u32 {
 
 pub fn solvePart2(input: []const u8) !u32 {
     var count_zero: u32 = 0;
-    var pos: i32 = 50;
-    const N = 100;
+    var pos: u32 = 50; // always 0..99
+    const N: u32 = 100;
 
     var it = std.mem.tokenizeScalar(u8, input, '\n');
     while (it.next()) |line_raw| {
@@ -49,10 +49,10 @@ pub fn solvePart2(input: []const u8) !u32 {
         count_zero += countZeroClicks(pos, dist_u, dir);
 
         // Now move the dial (only mod 100 matters)
-        const dist_mod: i32 = @intCast(dist_u % 100);
+        const dist_mod = dist_u % N;
         switch (dir) {
-            'L' => pos = @mod(pos - dist_mod, N),
-            'R' => pos = @mod(pos + dist_mod, N),
+            'L' => pos = (pos + N - dist_mod) % N,
+            'R' => pos = (pos + dist_mod) % N,
             else => return error.InvalidDirection,
         }
     }
@@ -60,27 +60,16 @@ pub fn solvePart2(input: []const u8) !u32 {
     return count_zero;
 }
 
-fn countZeroClicks(start_pos: i32, dist: u32, dir: u8) u32 {
+fn countZeroClicks(start_pos: u32, dist: u32, dir: u8) u32 {
     const N: u32 = 100;
-    const p: u32 = @intCast(start_pos);
 
     if (dist == 0) return 0;
 
-    var k0: u32 = 0;
-    switch (dir) {
-        'R' => {
-            const tmp: u32 = (N - (p % N)) % N;
-            k0 = if (tmp == 0) N else tmp;
-        },
-        'L' => {
-            const pmod: u32 = p % N;
-            k0 = if (pmod == 0) N else pmod;
-        },
+    return switch (dir) {
+        'R' => (start_pos + dist) / N,
+        'L' => (((N - (start_pos % N)) % N) + dist) / N,
         else => unreachable,
-    }
-
-    if (dist < k0) return 0;
-    return 1 + (dist - k0) / N;
+    };
 }
 
 pub fn runFromFile(
