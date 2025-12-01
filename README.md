@@ -1,7 +1,5 @@
 # Advent of Code
 
-[![Rust](https://github.com/Famoto/AdventOfCode2025/actions/workflows/rust.yml/badge.svg)](https://github.com/Famoto/AdventOfCode2025/actions/workflows/rust.yml)
-
 My solutions to [Advent of Code](https://adventofcode.com) puzzles.
 
 ## [Advent of Code 2025](https://adventofcode.com/2025)
