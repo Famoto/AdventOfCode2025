@@ -9,7 +9,7 @@ My solutions to [Advent of Code](https://adventofcode.com) puzzles.
 | Day | Puzzle | Code |
 |:---:|--------|:----:|
 | 1  | [Secret Entrance](https://adventofcode.com/2025/day/1) | [day1.zig](src/day1.zig) |
-| 2  | [?](https://adventofcode.com/2025/day/2) | [day2.zig](src/day2.zig) |
+| 2  | [Gift Shop](https://adventofcode.com/2025/day/2) | [day2.zig](src/day2.zig) |
 | 3  | [?](https://adventofcode.com/2025/day/3) | [day3.zig](src/day3.zig) |
 | 4  | [?](https://adventofcode.com/2025/day/4) | [day4.zig](src/day4.zig) |
 | 5  | [?](https://adventofcode.com/2025/day/5) | [day5.zig](src/day5.zig) |
@@ -26,7 +26,7 @@ My solutions to [Advent of Code](https://adventofcode.com) puzzles.
 | Day | Part 1 | Part 2 |
 |:---:|:------:|:------:|
 | 1  | 0.415 ms | 0.111 ms |
-| 2  | ? | ? |
+| 2  | 0.027 ms | 0.038 ms |
 | 3  | ? | ? |
 | 4  | ? | ? |
 | 5  | ? | ? |

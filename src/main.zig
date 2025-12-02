@@ -1,5 +1,6 @@
 const std = @import("std");
 const day1 = @import("day1.zig");
+const day2 = @import("day2.zig");
 
 pub fn main() !void {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
@@ -15,10 +16,26 @@ pub fn main() !void {
     std.debug.print("Day 1 Part 1 took {d:.3} ms\n", .{ms_f});
 
     // Day 1 timing - Part 2
-    timer.reset(); // <-- FIXED
+    timer.reset();
     try day1.runFromFile(allocator, "input/day1.txt", 2);
     ns = timer.read();
 
     ms_f = @as(f64, @floatFromInt(ns)) / 1_000_000.0;
     std.debug.print("Day 1 Part 2 took {d:.3} ms\n", .{ms_f});
+
+    // Day 2 timing - Part 1
+    timer.reset();
+    try day2.runFromFile(allocator, "input/day2.txt", 1);
+    ns = timer.read();
+
+    ms_f = @as(f64, @floatFromInt(ns)) / 1_000_000.0;
+    std.debug.print("Day 2 Part 1 took {d:.3} ms\n", .{ms_f});
+
+    // Day 2 timing - Part 2
+    timer.reset();
+    try day2.runFromFile(allocator, "input/day2.txt", 2);
+    ns = timer.read();
+
+    ms_f = @as(f64, @floatFromInt(ns)) / 1_000_000.0;
+    std.debug.print("Day 2 Part 2 took {d:.3} ms\n", .{ms_f});
 }
